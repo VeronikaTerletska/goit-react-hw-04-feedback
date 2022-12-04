@@ -3,6 +3,7 @@ import { Statistics } from './Statistics/Statistics';
 import { Section } from './Section/Section';
 import { NotificationMessage } from './NotificationMessage/NotificationMessage';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
+import { GlobalStyle } from './GlobalStyles';
 
 export const App = () => {
   const [feedbackState, setFeedbackState] = useState({
@@ -61,7 +62,7 @@ export const App = () => {
           <NotificationMessage message="There is no feedback" />
         )}
       </Section>
-      {/* <GlobalStyle /> */}
+      <GlobalStyle />
     </div>
   );
 };
