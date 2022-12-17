@@ -20,6 +20,6 @@ export const Button = styled.button`
   transition: transform 500ms;
   &:hover {
     cursor: pointer;
-    background-color: #0e43e4;
+    background-color: #2196f3;
   }
 `;
