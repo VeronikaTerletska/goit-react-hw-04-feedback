@@ -25,8 +25,6 @@ export function App() {
   };
 
   const countPositiveFeedbackPercentage = total => {
-    const { good } = this.state;
-
     if (total === 0) {
       return 0;
     }
