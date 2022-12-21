@@ -6,17 +6,34 @@ import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { GlobalStyle } from './GlobalStyles';
 
 export function App() {
-  const [feedbackState, setFeedbackState] = useState({
-    good: 0,
-    neutral: 0,
-    bad: 0,
-  });
-  const { good, neutral, bad } = feedbackState;
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+
+  const addGood = () => {
+    setGood(prevState => prevState + 1);
+  };
+  const addNeutral = () => {
+    setNeutral(prevState => prevState + 1);
+  };
+  const addBad = () => {
+    setBad(prevState => prevState + 1);
+  };
 
   const handleAddFeedback = event => {
-    const name = event.currentTarget.name;
-
-    setFeedbackState(state => ({ ...state, [name]: state[name] + 1 }));
+    switch (event) {
+      case 'good':
+        addGood();
+        break;
+      case 'neutral':
+        addNeutral();
+        break;
+      case 'bad':
+        addBad();
+        break;
+      default:
+        return;
+    }
   };
 
   const countTotalFeedback = () => {
@@ -46,7 +63,7 @@ export function App() {
     >
       <Section title="Please, leave your feedback">
         <FeedbackOptions
-          options={Object.keys(feedbackState)}
+          options={Object.keys({ good, neutral, bad })}
           onLeaveFeedback={handleAddFeedback}
         />
       </Section>
