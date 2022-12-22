@@ -20,8 +20,8 @@ export function App() {
     setBad(prevState => prevState + 1);
   };
 
-  const handleAddFeedback = event => {
-    switch (event) {
+  const handleAddFeedback = option => {
+    switch (option) {
       case 'good':
         addGood();
         break;
